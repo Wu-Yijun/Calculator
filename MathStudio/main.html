@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Math Studio Web</title>
+    <meta name="keywords" content="mathstudio,spacetime,matlab,mathematica,maple,iphone,ipad,graphing,calculator">
+    <meta name="description"
+        content="Modern technical computing system for students, teachers, engineers and everyone in between.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-itunes-app" content="app-id=956033107, affiliate-data=11lb7t" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./mathstduio.css" />
+    <link rel="stylesheet" href="./web.css" />
+    <script src="./mathstudio.min.js"></script>
+    <script>window.onload = window.MathStudio;</script>
+    <style id="fullscreen">
+        body {
+            overflow: visible;
+        }
+
+        #frameTop,
+        #frameLeft {
+            /*	position: static;
+            margin-left: 80px; */
+            right: 0;
+        }
+
+        #frameRight,
+        #frameRightTop {
+            display: none;
+        }
+
+        #toggleCatalogButton {
+            background: url(images/catalog-show.svg) no-repeat center center;
+        }
+    </style>
+    <style>
+        table.text td,
+        div.entry textarea,
+        div.single,
+        div.multi,
+        div.textarea,
+        div.multi-textarea,
+        div.textbox input[type=text] {
+            font-size: 16px;
+        }
+
+        div.textarea {
+            padding: 6px;
+        }
+
+        div.single {
+            padding: 6px;
+        }
+    </style>
+</head>
+
+<body class="MathStudio">
+    <div id="frameLeft" class="scrollable web">
+        <div id="MathStudio"></div>
+        <div id="fileViewer"></div>
+        <div id='importFile' style="display:block; padding:10px;">
+            <hr style="margin-bottom:8px">
+            <div style="padding:4px;">Upload a MathStudio file from your computer...</div>
+            <div style="padding:2px;"><input id="uploadFile" type="file"></div>
+        </div>
+    </div>
+    <div id="frameRightTop">
+        <button class="selected">Catalog</button>
+        <button class="">Search</button>
+        <button class="">Options</button>
+        <button class="">Help</button>
+    </div>
+    <div id="frameRight" class="scrollable">
+        <div id='Catalog' style="display:none;"></div>
+        <div id='Search' style="display:none;"></div>
+        <div id='Options' style="display:none;"></div>
+        <div id='Help'></div>
+    </div>
+
+    <script>
+        // localStorage.clear();
+        setTimeout(() => {
+            if (!localStorage.getItem('not_to_welcome')) {
+                window.MathStudio.pushLine("'欢迎使用 MathStudio !'");
+                window.MathStudio.pushLine("'你可以通过 window.MathStudio.addItems 来添加特定位置的公式列表(有bug)'");
+                window.MathStudio.pushLine("'你也可以通过 MathStudio.pushLine(text) 来向最后插入公式'");
+                window.MathStudio.pushLine("1+2 // 使用回车进行运算, 使用双斜线注释");
+                window.MathStudio.pushLine("1+4 2+5 /* 使用 Shift + 回车 创建第二行 */");
+                window.MathStudio.pushLine("Plot(((x+0.1)^2)^cos(T)) /* 使用 Shift + 删除 消去一行 */");
+                localStorage.setItem('not_to_welcome', 'true')
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>
