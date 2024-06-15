@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Desmos</title>
+    <!-- <script src="./Desmos.mjs" ></script> -->
+    <link rel="stylesheet" href="./main-css.css" />
+</head>
+
+<body>
+    <div id="calculator" style="width: 1200px; height: 800px;"></div>
+    <div id="calculator2" style="width: 1200px; height: 800px;"></div>
+    <script type="module">
+        import Desmos from "./Desmos.mjs"
+        var elt = document.getElementById('calculator');
+        var calculator = Desmos.GraphingCalculator(elt);
+        calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+        calculator.setExpression({ id: 'graph3', latex: 'y=x*(x-3)/4 - 5' });
+        calculator.setExpression({ id: 'graph2', latex: 'y=-(x^2/3)^{1.25}+2' });
+    </script>
+    <script type="module">
+        import Desmos from "./Desmos.mjs"
+        var elt = document.getElementById('calculator2');
+        var calculator = Desmos.GraphingCalculator(elt);
+        calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+    </script>
+    <script>
+        console.log('[Not Defined outside module]', typeof Desmos);
+    </script>
+    <!-- <script src="./Desmos-non-module.js"></script> -->
+    <script>
+        console.log(Desmos);
+    </script>
+</body>
+
+</html>
