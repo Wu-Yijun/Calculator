@@ -31,7 +31,10 @@ jobs:
       - name: Move HTML files to release directory
         run: |
           mkdir ./release
-          mv ./Desmos/* ./release
+          mv ./Desmos/*.js ./release/Desmos/
+          mv ./Desmos/*.html ./release/Desmos/
+          mv ./Desmos/*.css ./release/Desmos/
+          mv ./index.html ./release/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@main
