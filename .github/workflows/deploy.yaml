@@ -39,6 +39,10 @@ jobs:
           mv ./Desmos/*.html ./release/Desmos/
           mv ./Desmos/*.css ./release/Desmos/
 
+          mkdir ./release/MathStudio
+          mv ./MathStudio/* ./release/MathStudio/
+
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@main
         with:
